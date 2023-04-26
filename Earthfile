@@ -18,5 +18,5 @@ build-automata:
     RUN /bin/bash -c "source /code/venv_terraphim/bin/activate && pip3 install -r terraphim-platform-automata/requirements.txt"
     WORKDIR /code/terraphim-platform-automata
     RUN mkdir ./automata
-    RUN /bin/bash -c "source /code/venv_terraphim/bin/activate && python3 parse_wand_taxonomy_to_dict.py"
+    RUN /bin/bash -c "source /code/venv_terraphim/bin/activate && python3 parse_wand_taxonomy_to_automata.py"
     SAVE ARTIFACT automata AS LOCAL automata

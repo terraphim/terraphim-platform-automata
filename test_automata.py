@@ -6,6 +6,7 @@ def test_matcher(url):
     print(f"Testing matcher from {url}")
     print(find_matches(sentence2, Automata))
     print(find_matches(test_token2,Automata))
+    print(find_matches(sentence_cyber,Automata))
 
 
 test_matcher("https://s3.eu-west-2.amazonaws.com/assets.thepattern.digital/automata_fresh_semantic.pkl.lzma")
