@@ -4,9 +4,12 @@ from sample_data.sample_data import *
 def test_matcher(url):
     Automata=loadAutomata(url)
     print(f"Testing matcher from {url}")
-    print(find_matches(sentence2.lower(), Automata))
-    print(find_matches(test_token2.lower(),Automata))
-    print(find_matches(sentence_cyber.lower(),Automata))
+    print("Sentence ",sentence2)
+    print("Matched to ", find_matches(sentence2.lower(), Automata))
+    print("Token (cyber)", test_token2)
+    print("Matched ", find_matches(test_token2.lower(),Automata))
+    print("Sentence (cyber)", sentence_cyber)
+    print("Matched ",find_matches(sentence_cyber.lower(),Automata))
 
 
 test_matcher("https://s3.eu-west-2.amazonaws.com/assets.thepattern.digital/automata_fresh_semantic.pkl.lzma")
