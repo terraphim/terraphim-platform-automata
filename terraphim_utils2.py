@@ -2,7 +2,7 @@ import csv
 import gzip
 import os
 import tempfile
-import requests
+from urllib.request import urlopen
 import ahocorasick_rs
 
 
@@ -23,12 +23,11 @@ def load_automata(url):
         pass
     else:
         # Download the gzipped CSV file from the URL
-        response = requests.get(url)
-        content = response.content
+        response = urlopen(url)
 
         # Save the file to the temp folder with the specified filename
         with open(file_path, 'wb') as f:
-            f.write(content)
+            f.write(response.read())
 
     # Open the gzipped CSV file and read the rows
     with gzip.open(file_path, 'rt') as csvfile:
