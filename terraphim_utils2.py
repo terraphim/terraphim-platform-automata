@@ -1,14 +1,11 @@
-import csv
-import gzip
-import os
-import tempfile
-from urllib.request import urlopen
-import ahocorasick_rs
-
-
 def load_automata(url):
     from urllib.request import urlopen
     from urllib.parse import urlparse, unquote
+    import csv
+    import gzip
+    import os
+    import tempfile
+
     data = {}
     patterns = list()
     # Extract the filename from the URL
@@ -41,6 +38,7 @@ def load_automata(url):
     return data , patterns
 
 def find_matches(haystack: str, data:dict, patterns:list) -> list:
+    import ahocorasick_rs
     #  Find matches in the haystack string always return a list of tuples (id, term, start, end)
     matched_terms = list()
     ac = ahocorasick_rs.AhoCorasick(patterns, matchkind=ahocorasick_rs.MatchKind.LeftmostLongest)
