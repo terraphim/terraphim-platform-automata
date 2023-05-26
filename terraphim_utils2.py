@@ -1,3 +1,5 @@
+import ahocorasick_rs
+
 def load_automata(url):
     from urllib.request import urlopen
     from urllib.parse import urlparse, unquote
@@ -35,10 +37,9 @@ def load_automata(url):
             id = row[1]
             parent_id = row[2]
             data[term] = {'id': id, 'parent_id': parent_id}
-    return data , patterns
+    return data, patterns
 
 def find_matches(haystack: str, data:dict, patterns:list) -> list:
-    import ahocorasick_rs
     #  Find matches in the haystack string always return a list of tuples (id, term, start, end)
     matched_terms = list()
     ac = ahocorasick_rs.AhoCorasick(patterns, matchkind=ahocorasick_rs.MatchKind.LeftmostLongest)
