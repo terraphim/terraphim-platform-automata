@@ -1,5 +1,3 @@
-import ahocorasick_rs
-
 def load_automata(url):
     from urllib.request import urlopen
     from urllib.parse import urlparse, unquote
@@ -41,6 +39,7 @@ def load_automata(url):
 
 def find_matches(haystack: str, data:dict, patterns:list) -> list:
     #  Find matches in the haystack string always return a list of tuples (id, term, start, end)
+    import ahocorasick_rs
     matched_terms = list()
     ac = ahocorasick_rs.AhoCorasick(patterns, matchkind=ahocorasick_rs.MatchKind.LeftmostLongest)
     matches=ac.find_matches_as_indexes(haystack)
