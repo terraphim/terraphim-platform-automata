@@ -1,4 +1,4 @@
-def load_automata(url, lazy=False):
+def loadAutomata(url, lazy=False):
     from urllib.request import urlopen
     from urllib.parse import urlparse, unquote
     import csv
